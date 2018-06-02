@@ -1,6 +1,6 @@
---PROC_Cap nhap thong tin ca nhan
-USE _QLBH
 
+USE _QLBH
+--PROC_Cap nhap thong tin ca nhan
 exec USP_DangNhap @TaiKhoan = obama,@MatKhau = 1
 go
 CREATE PROC USP_UpdateAccounts
@@ -23,5 +23,10 @@ BEGIN
 END
 GO
 
-
- 
+ --PROC_Dang Nhap
+ CREATE PROC USP_DangNhap
+ @TaiKhoan nvarchar(200),@MatKhau nvarchar(200)
+ AS
+ BEGIN
+    Select * from TaiKhoan where TaiKhoan = @TaiKhoan and MatKhau = @MatKhau
+ END

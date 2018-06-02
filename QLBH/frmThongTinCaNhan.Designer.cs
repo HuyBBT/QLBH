@@ -91,7 +91,7 @@
             this.txtTenHienThi.Location = new System.Drawing.Point(112, 10);
             this.txtTenHienThi.Name = "txtTenHienThi";
             this.txtTenHienThi.Size = new System.Drawing.Size(195, 22);
-            this.txtTenHienThi.TabIndex = 1;
+            this.txtTenHienThi.TabIndex = 2;
             // 
             // label2
             // 
@@ -116,7 +116,7 @@
             this.txtMatKhau.Location = new System.Drawing.Point(112, 10);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(195, 22);
-            this.txtMatKhau.TabIndex = 1;
+            this.txtMatKhau.TabIndex = 3;
             // 
             // label3
             // 
@@ -141,7 +141,7 @@
             this.txtMatKhauMoi.Location = new System.Drawing.Point(112, 10);
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
             this.txtMatKhauMoi.Size = new System.Drawing.Size(195, 22);
-            this.txtMatKhauMoi.TabIndex = 1;
+            this.txtMatKhauMoi.TabIndex = 4;
             // 
             // label4
             // 
@@ -166,7 +166,7 @@
             this.txtNhapLai.Location = new System.Drawing.Point(112, 10);
             this.txtNhapLai.Name = "txtNhapLai";
             this.txtNhapLai.Size = new System.Drawing.Size(195, 22);
-            this.txtNhapLai.TabIndex = 1;
+            this.txtNhapLai.TabIndex = 5;
             // 
             // label5
             // 
@@ -182,7 +182,7 @@
             this.btnCapNhap.Location = new System.Drawing.Point(30, 266);
             this.btnCapNhap.Name = "btnCapNhap";
             this.btnCapNhap.Size = new System.Drawing.Size(122, 34);
-            this.btnCapNhap.TabIndex = 3;
+            this.btnCapNhap.TabIndex = 6;
             this.btnCapNhap.Text = "Cập nhập";
             this.btnCapNhap.UseVisualStyleBackColor = true;
             this.btnCapNhap.Click += new System.EventHandler(this.btnCapNhap_Click);
@@ -192,7 +192,7 @@
             this.btnThoat.Location = new System.Drawing.Point(184, 266);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(122, 34);
-            this.btnThoat.TabIndex = 3;
+            this.btnThoat.TabIndex = 7;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
