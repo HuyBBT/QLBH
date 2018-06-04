@@ -89,6 +89,7 @@
             this.phiếuXuấtHàngToolStripMenuItem.Name = "phiếuXuấtHàngToolStripMenuItem";
             this.phiếuXuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
             this.phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
+            this.phiếuXuấtHàngToolStripMenuItem.Click += new System.EventHandler(this.phiếuXuấtHàngToolStripMenuItem_Click);
             // 
             // kháchHàngToolStripMenuItem
             // 

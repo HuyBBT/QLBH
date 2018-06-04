@@ -67,5 +67,13 @@ namespace QLBH
         }
 
         #endregion
+
+        private void phiếuXuấtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPhieuXuat f = new frmPhieuXuat();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }
