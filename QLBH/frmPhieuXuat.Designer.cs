@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -39,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.flbKhachHang = new System.Windows.Forms.FlowLayoutPanel();
             this.bntThem = new System.Windows.Forms.Button();
             this.bntThanhToan = new System.Windows.Forms.Button();
             this.txtTongTien = new System.Windows.Forms.TextBox();
@@ -47,7 +45,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.nmGiamGia = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbKhachHang = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -55,20 +54,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmGiamGia)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.flbKhachHang);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(264, 453);
-            this.panel1.TabIndex = 0;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.listView1);
-            this.panel2.Location = new System.Drawing.Point(281, 118);
+            this.panel2.Location = new System.Drawing.Point(3, 170);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(546, 276);
+            this.panel2.Size = new System.Drawing.Size(551, 326);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -79,7 +70,7 @@
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.bntThanhToan);
             this.panel3.Controls.Add(this.nmGiamGia);
-            this.panel3.Location = new System.Drawing.Point(282, 400);
+            this.panel3.Location = new System.Drawing.Point(4, 502);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(545, 65);
             this.panel3.TabIndex = 2;
@@ -88,7 +79,7 @@
             // 
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(537, 270);
+            this.listView1.Size = new System.Drawing.Size(545, 320);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -97,34 +88,37 @@
             this.panel4.Controls.Add(this.bntThem);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.cbKhachHang);
+            this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.nmSoLuong);
             this.panel4.Controls.Add(this.cbHangHoa);
             this.panel4.Controls.Add(this.cbLoaiHang);
-            this.panel4.Location = new System.Drawing.Point(279, 12);
+            this.panel4.Location = new System.Drawing.Point(6, 12);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(548, 100);
+            this.panel4.Size = new System.Drawing.Size(548, 152);
             this.panel4.TabIndex = 3;
             // 
             // cbLoaiHang
             // 
             this.cbLoaiHang.FormattingEnabled = true;
-            this.cbLoaiHang.Location = new System.Drawing.Point(129, 3);
+            this.cbLoaiHang.Location = new System.Drawing.Point(129, 54);
             this.cbLoaiHang.Name = "cbLoaiHang";
-            this.cbLoaiHang.Size = new System.Drawing.Size(311, 24);
+            this.cbLoaiHang.Size = new System.Drawing.Size(223, 24);
             this.cbLoaiHang.TabIndex = 0;
             // 
             // cbHangHoa
             // 
             this.cbHangHoa.FormattingEnabled = true;
-            this.cbHangHoa.Location = new System.Drawing.Point(129, 33);
+            this.cbHangHoa.Location = new System.Drawing.Point(129, 84);
             this.cbHangHoa.Name = "cbHangHoa";
-            this.cbHangHoa.Size = new System.Drawing.Size(311, 24);
+            this.cbHangHoa.Size = new System.Drawing.Size(223, 24);
             this.cbHangHoa.TabIndex = 0;
+            this.cbHangHoa.SelectedIndexChanged += new System.EventHandler(this.cbHangHoa_SelectedIndexChanged);
             // 
             // nmSoLuong
             // 
-            this.nmSoLuong.Location = new System.Drawing.Point(129, 64);
+            this.nmSoLuong.Location = new System.Drawing.Point(129, 114);
             this.nmSoLuong.Minimum = new decimal(new int[] {
             100,
             0,
@@ -133,11 +127,12 @@
             this.nmSoLuong.Name = "nmSoLuong";
             this.nmSoLuong.Size = new System.Drawing.Size(71, 22);
             this.nmSoLuong.TabIndex = 1;
+            this.nmSoLuong.ValueChanged += new System.EventHandler(this.nmSoLuong_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 9);
+            this.label1.Location = new System.Drawing.Point(12, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 2;
@@ -146,7 +141,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 33);
+            this.label2.Location = new System.Drawing.Point(12, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 17);
             this.label2.TabIndex = 2;
@@ -155,24 +150,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 64);
+            this.label3.Location = new System.Drawing.Point(12, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Số lượng :";
             // 
-            // flbKhachHang
-            // 
-            this.flbKhachHang.Location = new System.Drawing.Point(4, 9);
-            this.flbKhachHang.Name = "flbKhachHang";
-            this.flbKhachHang.Size = new System.Drawing.Size(257, 444);
-            this.flbKhachHang.TabIndex = 0;
-            // 
             // bntThem
             // 
-            this.bntThem.Location = new System.Drawing.Point(446, 3);
+            this.bntThem.Location = new System.Drawing.Point(370, 32);
             this.bntThem.Name = "bntThem";
-            this.bntThem.Size = new System.Drawing.Size(96, 55);
+            this.bntThem.Size = new System.Drawing.Size(101, 63);
             this.bntThem.TabIndex = 3;
             this.bntThem.Text = "Thêm hàng";
             this.bntThem.UseVisualStyleBackColor = true;
@@ -236,18 +224,33 @@
             this.label5.Text = "%";
             this.label5.Click += new System.EventHandler(this.label4_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 17);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Khách hàng :";
+            // 
+            // cbKhachHang
+            // 
+            this.cbKhachHang.FormattingEnabled = true;
+            this.cbKhachHang.Location = new System.Drawing.Point(129, 24);
+            this.cbKhachHang.Name = "cbKhachHang";
+            this.cbKhachHang.Size = new System.Drawing.Size(223, 24);
+            this.cbKhachHang.TabIndex = 0;
+            // 
             // frmPhieuXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 477);
+            this.ClientSize = new System.Drawing.Size(558, 579);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Name = "frmPhieuXuat";
             this.Text = "frmPhieuXuat";
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -260,9 +263,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flbKhachHang;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Panel panel3;
@@ -280,5 +280,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.NumericUpDown nmGiamGia;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbKhachHang;
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Forms;
 namespace QLBH
 {
     #region event
+
     public partial class frmQuanLyChung : Form
     {
         private DangNhap taikhoanDangNhap;
@@ -57,7 +58,17 @@ namespace QLBH
             f.ShowDialog();
             this.Show();
         }
+
+        private void phiếuXuấtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPhieuXuat f = new frmPhieuXuat();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
         #endregion
+
+
         #region method
 
         void KieuTaiKhoan(int kieuTaiKhoan)
@@ -68,12 +79,6 @@ namespace QLBH
 
         #endregion
 
-        private void phiếuXuấtHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPhieuXuat f = new frmPhieuXuat();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
+        
     }
 }

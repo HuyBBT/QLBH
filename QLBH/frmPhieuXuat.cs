@@ -26,5 +26,15 @@ namespace QLBH
         {
 
         }
+
+        private void nmSoLuong_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbHangHoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
