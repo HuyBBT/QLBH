@@ -18,7 +18,7 @@ namespace QLBH.DTO
         }
         public DangNhap(DataRow row)
         {
-            this.TaiKhoan = row["TaiKhoan"].ToString();
+            this.TaiKhoan = row["TenDN"].ToString();
             this.TenDangNhap = row["TenDN"].ToString();
             this.MaLTK = (int)row["MaLTK"];
             this.MatKhau = row["MatKhau"].ToString();

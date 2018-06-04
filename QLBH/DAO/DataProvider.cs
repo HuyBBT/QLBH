@@ -11,7 +11,7 @@ namespace QLBH.DAO
     public class DataProvider
     {
         private static DataProvider instance;
-        string connection = "Data Source=DESKTOP-32HIUAH;Initial Catalog=_QLBH;Integrated Security=True";
+        string connection = @"Data Source=HUYNGUYEN\SQLEXPRESS;Initial Catalog=_QLBH;Integrated Security=True";
 
         internal static DataProvider Instance
         {

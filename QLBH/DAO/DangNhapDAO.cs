@@ -42,7 +42,7 @@ namespace QLBH.DAO
         
         public DangNhap DangNhapTheoTaiKhoan(string taikhoan)
         {
-            DataTable data = DataProvider.Instance.ExcuteQuery("select * from TaiKhoan where TaiKhoan = '" + taikhoan + "'");
+            DataTable data = DataProvider.Instance.ExcuteQuery("select * from TaiKhoan where TenDN = '" + taikhoan + "'");
             foreach(DataRow item in data.Rows )
             {
                 return new DangNhap(item);

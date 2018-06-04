@@ -68,12 +68,33 @@ namespace QLBH
 
         #endregion
 
+        private void phiếuNhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNhap frm = new frmNhap();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNhacungcap f = new frmNhacungcap();
+            f.Activate();
+            f.Show();
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmkhachhang f = new frmkhachhang();
+            f.Activate();
+            f.Show();
+        }
+
         private void phiếuXuấtHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPhieuXuat f = new frmPhieuXuat();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            frmXuat f = new frmXuat();
+            f.Activate();
+            f.Show();
         }
     }
 }
