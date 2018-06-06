@@ -42,7 +42,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnThem = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTongTien = new System.Windows.Forms.TextBox();
             this.cbLoaiHangHoa = new System.Windows.Forms.ComboBox();
             this.cbHangHoa = new System.Windows.Forms.ComboBox();
             this.nmSoLuong = new System.Windows.Forms.NumericUpDown();
@@ -52,6 +51,7 @@
             this.btnThemPhieuXuat = new System.Windows.Forms.Button();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.dtgPhieuXuat = new System.Windows.Forms.DataGridView();
+            this.txtTongTien = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nmSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPhieuXuat)).BeginInit();
             this.SuspendLayout();
@@ -166,7 +166,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(294, 342);
+            this.btnThem.Location = new System.Drawing.Point(813, 32);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 42);
@@ -185,14 +185,6 @@
             this.label7.Size = new System.Drawing.Size(77, 17);
             this.label7.TabIndex = 10;
             this.label7.Text = "Tổng tiền";
-            // 
-            // txtTongTien
-            // 
-            this.txtTongTien.Location = new System.Drawing.Point(110, 294);
-            this.txtTongTien.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.Size = new System.Drawing.Size(323, 22);
-            this.txtTongTien.TabIndex = 4;
             // 
             // cbLoaiHangHoa
             // 
@@ -278,18 +270,26 @@
             // 
             this.dtgPhieuXuat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgPhieuXuat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgPhieuXuat.Location = new System.Drawing.Point(16, 94);
+            this.dtgPhieuXuat.Location = new System.Drawing.Point(16, 134);
             this.dtgPhieuXuat.Name = "dtgPhieuXuat";
             this.dtgPhieuXuat.RowTemplate.Height = 24;
             this.dtgPhieuXuat.Size = new System.Drawing.Size(392, 112);
             this.dtgPhieuXuat.TabIndex = 21;
             this.dtgPhieuXuat.VirtualMode = true;
             // 
+            // txtTongTien
+            // 
+            this.txtTongTien.Location = new System.Drawing.Point(196, 354);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.Size = new System.Drawing.Size(216, 22);
+            this.txtTongTien.TabIndex = 22;
+            // 
             // frmXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 537);
+            this.Controls.Add(this.txtTongTien);
             this.Controls.Add(this.dtgPhieuXuat);
             this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.txtMaKhachHang);
@@ -307,7 +307,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTongTien);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmXuat";
             this.Text = "frmXuat";
@@ -334,7 +333,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.ComboBox cbLoaiHangHoa;
         private System.Windows.Forms.ComboBox cbHangHoa;
         private System.Windows.Forms.NumericUpDown nmSoLuong;
@@ -344,5 +342,6 @@
         private System.Windows.Forms.Button btnThemPhieuXuat;
         private System.Windows.Forms.TextBox txtGhiChu;
         private System.Windows.Forms.DataGridView dtgPhieuXuat;
+        private System.Windows.Forms.TextBox txtTongTien;
     }
 }

@@ -39,7 +39,11 @@ namespace QLBH.DAO
             DataTable data = DataProvider.Instance.ExcuteQuery("select * from PhieuXuat where MaPX = (select MAX(MaPX) as MaVuaThem from PhieuXuat)");
             return data;
         }
-
+        public void ThemTongTien(int tongtien,int maPX)
+        {
+            string query = "update PhieuXuat set TongTien = " + tongtien + " where MaPX = " + maPX + "";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
         public int GetMaxIDPhieuXuat()
         {
             try
@@ -51,6 +55,6 @@ namespace QLBH.DAO
                 return 1;
             }
         }
-
+        
     }
 }

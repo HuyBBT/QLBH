@@ -17,6 +17,7 @@ namespace QLBH
         {
             InitializeComponent();
             Load();
+            //loadThongKe();
         }
 
         #region Method
@@ -157,6 +158,13 @@ namespace QLBH
                 MessageBox.Show("Sửa thất công! ");
             }
             LoadNhanVien();
+        }
+
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            DateTime ThongKe = dtpkThongKe.Value;
+            dtgvThongKe.DataSource = ThongKeDAO.Instance.ThongKe(ThongKe);
         }
     }
 }

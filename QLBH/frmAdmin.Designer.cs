@@ -493,17 +493,17 @@
             this.panel2.Controls.Add(this.dtgvThongKe);
             this.panel2.Location = new System.Drawing.Point(7, 54);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(674, 368);
+            this.panel2.Size = new System.Drawing.Size(900, 415);
             this.panel2.TabIndex = 1;
             // 
             // dtgvThongKe
             // 
             this.dtgvThongKe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvThongKe.Location = new System.Drawing.Point(4, 4);
+            this.dtgvThongKe.Location = new System.Drawing.Point(3, 3);
             this.dtgvThongKe.Name = "dtgvThongKe";
             this.dtgvThongKe.RowTemplate.Height = 24;
-            this.dtgvThongKe.Size = new System.Drawing.Size(667, 361);
+            this.dtgvThongKe.Size = new System.Drawing.Size(881, 389);
             this.dtgvThongKe.TabIndex = 0;
             // 
             // panel1
@@ -523,6 +523,7 @@
             this.btnThongKe.TabIndex = 1;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // dtpkThongKe
             // 

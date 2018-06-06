@@ -48,9 +48,9 @@ namespace QLBH
                 tongtien += item.ThanhTien;
                 lvxuat.Items.Add(lsv);
             }
-            CultureInfo culture = new CultureInfo("vi-VN");
+            //CultureInfo culture = new CultureInfo("vi-VN");
 
-            txtTongTien.Text = tongtien.ToString("C",culture);
+            txtTongTien.Text = tongtien.ToString();
         }
 
         void LoadLoaiHH()
@@ -111,19 +111,28 @@ namespace QLBH
 
         }
 
+        void ThemTongTien(int tongtien,int mpx)
+        {
+            PhieuXuatDAO.Instance.ThemTongTien(tongtien, mpx);
+        }
+
+
         private void btnThemPhieuXuat_Click(object sender, EventArgs e)
         {
+            int mpx = PhieuXuatDAO.Instance.GetMaxIDPhieuXuat();
+            int tontien = int.Parse(txtTongTien.Text);
+            ThemTongTien(tongtien,mpx);
             lvxuat.Items.Clear();
             DateTime ngayxuat = dtngayxuat.Value;
             if(PhieuXuatDAO.Instance.InsertPhieuXuat(ngayxuat))
             {
-                MessageBox.Show("Them Thanh Cong");
+                MessageBox.Show("Thanh Toan Cong");
                 LoadPhieuXuat();
-
+                txtTongTien.Text = "";
             }
             else
             {
-                MessageBox.Show("Them Thanh cong");
+                MessageBox.Show("Thanh Toan that bai");
             }
 
 
