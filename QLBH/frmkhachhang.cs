@@ -18,7 +18,7 @@ namespace QLBH
             InitializeComponent();
         }
         SqlConnection conn = null;
-        string Strconn = @"Data Source=HUYNGUYEN\SQLEXPRESS;Initial Catalog=_QLBH;Integrated Security=True";
+        string Strconn = @"Data Source=.;Initial Catalog=_QLBH;Integrated Security=True";
         private string StrConn;
         private void frmkhachhang_Load(object sender, EventArgs e)
         {

@@ -30,3 +30,14 @@ GO
  BEGIN
     Select * from TaiKhoan where TaiKhoan = @TaiKhoan and MatKhau = @MatKhau
  END
+
+ --Phieu Thu
+ select kh.TenKH,hh.TenHH,px.NgayXuat,cpx.Counts,pn.Giaxuat as gia, cpx.Counts*pn.Giaxuat as ThanhTien 
+from ChiTietPhieuXuat cpx,PhieuXuat px,HangHoa hh,KhachHang kh,ChiTietPhieuNhap pn
+where cpx.MaHH = pn.MaHH
+and cpx.MaHH = hh.MaHH 
+and cpx.MaKH = kh.MaKH 
+and px.MaPX = cpx.MaPX
+and px.MaPX = 1
+go
+select kh.TenKH,hh.TenHH,px.NgayXuat,cpx.Counts as SoLuong,pn.Giaxuat as DonGia, cpx.Counts*pn.Giaxuat as ThanhTien from ChiTietPhieuXuat cpx,PhieuXuat px, HangHoa hh,KhachHang kh, ChiTietPhieuNhap pn where cpx.MaHH = pn.MaHH and cpx.MaHH = hh.MaHH and cpx.MaKH = kh.MaKH and px.MaPX = cpx.MaPX and px.MaPX = 1

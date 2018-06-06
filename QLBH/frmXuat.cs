@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using QLBH.DTO;
+using QLBH.DAO;
+using System.Globalization;
 
 namespace QLBH
 {
@@ -16,70 +19,62 @@ namespace QLBH
         public frmXuat()
         {
             InitializeComponent();
+            
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        SqlConnection conn = null;
-        string Strconn = @"Data Source=HUYNGUYEN\SQLEXPRESS;Initial Catalog=_QLBH;Integrated Security=True";
-        private string StrConn;
+    
         private void frmXuat_Load(object sender, EventArgs e)
         {
-            if (conn == null)
-                conn = new SqlConnection(Strconn);
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-            SqlCommand command = new SqlCommand();
-            command.Connection = conn;
-            command.CommandType = CommandType.Text;
-            command.CommandText = @"SELECT dbo.ChiTietPhieuXuat.MaCTPX,dbo.ChiTietPhieuXuat.MaHH,dbo.ChiTietPhieuXuat.MaKH,dbo.ChiTietPhieuXuat.Counts,dbo.ChiTietPhieuXuat.GhiChu,dbo.PhieuXuat.NgayXuat 
-		                            FROM dbo.ChiTietPhieuXuat,dbo.PhieuXuat 
-		                            WHERE dbo.ChiTietPhieuXuat.MaPX=dbo.PhieuXuat.MaPX";
-            command.Connection = conn;
-            lvxuat.Items.Clear();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            loadBill();
+            LoadLoaiHH();
+        }
+        int tongtien = 0;
+        void loadBill()
+        {
+            List<Bill> list = BillDAO.Instance.HienThiPhieuXuat();
+            foreach(Bill item in list)
             {
-                ListViewItem lvi = new ListViewItem(reader[1].ToString());
-                lvi.SubItems.Add(reader[2].ToString());
-                lvi.SubItems.Add(reader[3].ToString());
-                lvi.SubItems.Add(reader[4].ToString());
-                lvi.SubItems.Add(reader[0].ToString());
-                lvxuat.Items.Add(lvi);
+               
+                ListViewItem lsv = new ListViewItem(item.TenKH.ToString());
+                lsv.SubItems.Add(item.TenHH.ToString());
+                lsv.SubItems.Add(item.NgayXuat.ToString());
+                lsv.SubItems.Add(item.SoLuong.ToString());
+                lsv.SubItems.Add(item.DonGia.ToString());
+                lsv.SubItems.Add(item.ThanhTien.ToString());
+                tongtien += item.ThanhTien;
+                lvxuat.Items.Add(lsv);
             }
-            reader.Close();
+            CultureInfo culture = new CultureInfo("vi-VN");
+
+            txtTongTien.Text = tongtien.ToString("C",culture);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void LoadLoaiHH()
         {
-            if (conn == null)
-                conn = new SqlConnection(Strconn);
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-            SqlCommand command = new SqlCommand();
-            command.Connection = conn;
-            command.CommandType = CommandType.Text;
-            command.CommandText = @"EXEC dbo.Xuat @mahh,
-                                    @SL ,
-                                    @ghichu ,
-                                    @makh,
-                                    @ngayxuat";
-            command.Parameters.Add("@mahh", SqlDbType.NVarChar).Value = txtmahh.Text;
-            command.Parameters.Add("@SL", SqlDbType.Int).Value = txtsl.Text;
-            command.Parameters.Add("@ghichu", SqlDbType.NVarChar).Value = txtghichu.Text;
-            command.Parameters.Add("@makh", SqlDbType.Int).Value = txtmakh.Text;
-            command.Parameters.Add("@ngayxuat", SqlDbType.Date).Value = dtngayxuat.Text;
-            int ret = command.ExecuteNonQuery();
-            if (ret > 0)
-            {
-                MessageBox.Show("Thêm thành công");
-            }
-            else
-            {
-                MessageBox.Show("Thêm thất bại");
-            }
+            List<LoaiHangHoa> listCategory = LoaiHHDAO.Instance.LoadListLoaiHH();
+            cbLoaiHangHoa.DataSource = listCategory;
+            cbLoaiHangHoa.DisplayMember = "TenLoaiHH";
+        }
+   
+        void LoadListHHbyLoaiHH(int id)
+        {
+            List<HangHoa> listFood = HangHoaDAO.Instance.GetLishHangHoabyLoaiHH(id);
+            cbHangHoa.DataSource = listFood;
+            cbHangHoa.DisplayMember = "TenHH";
+        }
+
+        private void cbLoaiHangHoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            ComboBox cb = sender as ComboBox;
+
+            if (cb.SelectedItem == null)
+                return;
+
+            LoaiHangHoa selected = cb.SelectedItem as LoaiHangHoa;
+            id = selected.MaLoaiHH;
+
+            LoadListHHbyLoaiHH(id);
         }
     }
 }
