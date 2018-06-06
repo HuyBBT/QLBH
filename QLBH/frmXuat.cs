@@ -26,11 +26,16 @@ namespace QLBH
         {
             loadBill();
             LoadLoaiHH();
+            LoadPhieuXuat();
+        }
+        void LoadPhieuXuat()
+        {
+            dtgPhieuXuat.DataSource = PhieuXuatDAO.Instance.LoadPhieuXuat();
         }
         int tongtien = 0;
         void loadBill()
         {
-            List<Bill> list = BillDAO.Instance.HienThiPhieuXuat();
+            List<Bill> list = BillDAO.Instance.HienThiPhieuXuat(PhieuXuatDAO.Instance.GetMaxIDPhieuXuat());
             foreach(Bill item in list)
             {
                
@@ -75,6 +80,53 @@ namespace QLBH
             id = selected.MaLoaiHH;
 
             LoadListHHbyLoaiHH(id);
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            
+            int MaKH = int.Parse(txtMaKhachHang.Text);
+            string MaHH = (cbHangHoa.SelectedItem as HangHoa).MaHH;
+            int counts = (int)nmSoLuong.Value;
+            string ghiChu = txtGhiChu.Text;
+            if(ChiTietPhieuXuatDAO.Instance.InsertChiTietPhieuXuat(MaHH,MaKH,PhieuXuatDAO.Instance.GetMaxIDPhieuXuat(),counts,ghiChu))
+            {
+                MessageBox.Show("Them Thanh Cong");
+                loadBill();
+            }
+            else
+            {
+                MessageBox.Show("Them Thanh cong");
+            }
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaKhachHang_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThemPhieuXuat_Click(object sender, EventArgs e)
+        {
+            lvxuat.Items.Clear();
+            DateTime ngayxuat = dtngayxuat.Value;
+            if(PhieuXuatDAO.Instance.InsertPhieuXuat(ngayxuat))
+            {
+                MessageBox.Show("Them Thanh Cong");
+                LoadPhieuXuat();
+
+            }
+            else
+            {
+                MessageBox.Show("Them Thanh cong");
+            }
+
+
         }
     }
 }

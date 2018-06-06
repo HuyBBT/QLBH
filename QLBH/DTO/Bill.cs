@@ -33,8 +33,7 @@ namespace QLBH.DTO
         }
 
         public Bill(DataRow row)
-        {
-            var oj = row["ThanhTien"];
+        {           
             this.thanhTien = (int)row["ThanhTien"];
             this.donGia = (int)row["DonGia"];
             this.soLuong = (int)row["SoLuong"];

@@ -26,11 +26,11 @@ namespace QLBH.DAO
         }
         private BillDAO() { }
 
-        public List<Bill> HienThiPhieuXuat()
+        public List<Bill> HienThiPhieuXuat(int id)
         {
             List<Bill> listPhieuXuat = new List<Bill>();
 
-            string query = "select kh.TenKH,hh.TenHH,px.NgayXuat,cpx.Counts as SoLuong,pn.Giaxuat as DonGia, cpx.Counts*pn.Giaxuat as ThanhTien from ChiTietPhieuXuat cpx,PhieuXuat px, HangHoa hh,KhachHang kh, ChiTietPhieuNhap pn where cpx.MaHH = pn.MaHH and cpx.MaHH = hh.MaHH and cpx.MaKH = kh.MaKH and px.MaPX = cpx.MaPX and px.MaPX = 1";
+            string query = "select kh.TenKH,hh.TenHH,px.NgayXuat,cpx.Counts as SoLuong,pn.Giaxuat as DonGia, cpx.Counts*pn.Giaxuat as ThanhTien from ChiTietPhieuXuat cpx,PhieuXuat px, HangHoa hh,KhachHang kh, ChiTietPhieuNhap pn where cpx.MaHH = pn.MaHH and cpx.MaHH = hh.MaHH and cpx.MaKH = kh.MaKH and px.MaPX = cpx.MaPX and px.MaPX ="+id ;
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
 
             foreach (DataRow item in data.Rows)
@@ -41,6 +41,12 @@ namespace QLBH.DAO
 
             return listPhieuXuat;
 
+        }
+
+        void isertPhieuXuat(DateTime ngayxuat)
+        {
+            string query = "exec USP_InsertPhieuXuat @NgayXuat";
+            int resulst = DataProvider.Instance.ExcuteNonQuery(query, new object[] { ngayxuat });
         }
     }
 }
